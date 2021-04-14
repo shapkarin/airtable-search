@@ -1,14 +1,16 @@
 <template>
-  <App />
+  <div id="search-code">
+    <Search />
+  </div>
 </template>
 
 <script>
-import App from "./components/app";
+import Search from "./components/app";
 
 export default {
   name: "App",
   components: {
-    App
+    Search
   }
 };
 </script>
