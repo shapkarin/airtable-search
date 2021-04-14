@@ -1,12 +1,14 @@
 <template>
   <div class="hello">
-    <input v-model="code" class="code" />
-    <button @click="search" class="button">Найти</button>
-    <div class="result" v-if="output.length">
-      <div class="order_number">Номер заказа {{ order_number }}</div>
-      <div v-for="item in output" :key="item.date">
-          <div class="date">{{ item.date }}</div>
-          <div class="stage">{{ item.stage }}</div>
+    <div class="wrapper">
+      <input v-model="code" class="code" placeholer="Введите номер отслеживания"/>
+      <button @click="search" class="button">Найти</button>
+      <div class="result" v-if="output.length">
+        <div class="order_number">Номер заказа {{ order_number }}</div>
+        <div v-for="item in output" :key="item.date">
+            <div class="date">{{ item.date }}</div>
+            <div class="stage">{{ item.stage }}</div>
+        </div>
       </div>
     </div>
     <div v-if="none">
@@ -24,7 +26,7 @@ export default {
     msg: String,
   },
   data: () => ({
-    code: "45760",
+    code: '',
     output: [],
     order_number: '',
     none: false
@@ -74,8 +76,11 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  max-width: 414px;
+}
 .code {
-  width: 284px;
+  width: 75%;
   height: 48px;
   background: #FFFFFF;
   border: 1px solid #B7B7B7;
@@ -87,7 +92,7 @@ export default {
   margin-bottom: 52px;
 }
 .button {
-  width: 129px;
+  width: 25%;
   height: 48px;
   background: #64DB8D;
   border-top-right-radius: 6px;
@@ -101,7 +106,7 @@ export default {
   border: 1px solid #F1F1F1;
   box-sizing: border-box;
   border-radius: 8px;
-  width: 411px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   text-align: left;
